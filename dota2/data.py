@@ -1,4 +1,5 @@
 import requests
+from game import *
 
 
 def get_game_data(game_id):
@@ -9,3 +10,8 @@ def get_game_data(game_id):
 
 def get_key():
     return open("key", "r").read()
+
+
+def convert_data(game):
+    obj = Game()
+    return obj
