@@ -6,7 +6,7 @@ known_good_match_id = 234523234
 
 
 def get_static_game():
-    return open("matches/1", "r").read()
+    return open("matches/2", "r").read()
 
 
 class DataAndKeys(unittest.TestCase):
@@ -21,7 +21,7 @@ class DataAndKeys(unittest.TestCase):
 
     def test_game_match_id(self):
         game = data.convert_data(get_static_game())
-        self.assertEqual(game.match_id, 1)
+        self.assertEqual(game.match_id, 2)
 
 
 if __name__ == '__main__':
