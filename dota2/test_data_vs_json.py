@@ -6,7 +6,10 @@ known_good_match_id = 234523234
 
 
 def get_static_game():
-    return open("matches/2", "r").read()
+    match = open("matches/2", "r")
+    match_str = match.read()
+    match.close()
+    return match_str
 
 
 class DataAndKeys(unittest.TestCase):

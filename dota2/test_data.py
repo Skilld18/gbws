@@ -10,7 +10,7 @@ class DataAndKeys(unittest.TestCase):
         self.assertIn("dire", data.get_game_data(1))
 
     def test_get_key(self):
-        self.assertTrue(len(data.get_key()) == 36)
+        self.assertEqual(len(data.get_key()), 36)
 
     def test_get_sane_key(self):
         self.assertTrue(len(set(data.get_key())) > 1)

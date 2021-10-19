@@ -9,7 +9,10 @@ def get_game_data(game_id):
 
 
 def get_key():
-    return open("key", "r").read()
+    key = open("key", "r")
+    key_string = key.read().strip()
+    key.close()
+    return key_string
 
 
 def convert_data(game):
