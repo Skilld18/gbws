@@ -1,5 +1,11 @@
 import requests
-from game import *
+
+import json
+from collections import namedtuple
+
+
+def custom_json_decoder(data):
+    return namedtuple('Game', data.keys())(*data.values())
 
 
 def get_game_data(game_id):
@@ -16,5 +22,4 @@ def get_key():
 
 
 def convert_data(game):
-    obj = Game()
-    return obj
+    return json.loads(game, object_hook=custom_json_decoder)
