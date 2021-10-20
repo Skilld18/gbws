@@ -15,9 +15,8 @@ def get_game_data(game_id):
 
 
 def get_key():
-    key = open("key", "r")
-    key_string = key.read().strip()
-    key.close()
+    with open("key", "r") as key:
+        key_string = key.read().strip()
     return key_string
 
 
