@@ -1,4 +1,5 @@
 import requests
+from enum import Enum
 
 import json
 from collections import namedtuple
@@ -24,5 +25,15 @@ def convert_data(game):
     return json.loads(game, object_hook=custom_json_decoder)
 
 
-def get_winner():
-    pass
+class Side(Enum):
+    GOBLINS = -1
+    DIRE = 0
+    RADIANT = 1
+
+
+def get_winner(game):
+    if game.radiant_win is True:
+        return Side.RADIANT
+    if game.radiant_win is False:
+        return Side.DIRE
+    return Side.GOBLINS

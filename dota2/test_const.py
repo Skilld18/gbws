@@ -1,4 +1,5 @@
 known_good_match_id = 234523234
+known_radiant_win = 234523236
 
 
 def get_static_game():
