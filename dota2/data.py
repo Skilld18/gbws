@@ -13,6 +13,11 @@ def get_game_data(game_id):
     return get_data("matches", game_id)
 
 
+def get_hero_data(hero_id):
+    api_url = "https://api.opendota.com/api/heroes"
+    return requests.get(api_url).content.decode("utf-8")
+
+
 def get_data(rest_api, key):
     api_url = "https://api.opendota.com/api/"
     return str(requests.get(api_url + rest_api + "/" +
