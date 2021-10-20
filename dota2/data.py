@@ -20,7 +20,7 @@ def get_hero_data(hero_id):
 def get_data(rest_api, key):
     api_url = "https://api.opendota.com/api/"
     return str(requests.get(api_url + rest_api + "/" +
-                            str(key)).content.decode("utf-8"))
+                            str(key) + "?api_key=" + get_key()).content.decode("utf-8"))
 
 
 def get_key():
