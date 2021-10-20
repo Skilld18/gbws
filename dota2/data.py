@@ -10,9 +10,13 @@ def custom_json_decoder(data):
 
 
 def get_game_data(game_id):
+    return get_data("matches", game_id)
+
+
+def get_data(rest_api, key):
     api_url = "https://api.opendota.com/api/"
-    return str(requests.get(api_url + "matches/" +
-                            str(game_id)).content.decode("utf-8"))
+    return str(requests.get(api_url + rest_api + "/" +
+                            str(key)).content.decode("utf-8"))
 
 
 def get_key():
