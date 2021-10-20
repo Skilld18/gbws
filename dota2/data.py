@@ -14,8 +14,7 @@ def get_game_data(game_id):
 
 
 def get_hero_data(hero_id):
-    api_url = "https://api.opendota.com/api/heroes"
-    return requests.get(api_url).content.decode("utf-8")
+    return get_data("heroes", "")
 
 
 def get_data(rest_api, key):
