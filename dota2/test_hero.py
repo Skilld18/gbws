@@ -14,34 +14,19 @@ class TestHero(unittest.TestCase):
     def test_get_radiant_heroes(self):
         game = convert_data(get_game_data(known_good_match_id))
         heroes = get_radiant_heroes(game)
-        actual = set()
-        actual.add("Lich")
-        actual.add("Riki")
-        actual.add("Razor")
-        actual.add("Slark")
-        actual.add("Bristleback")
+        actual = {'Lich', 'Riki', 'Razor', 'Slark', 'Bristleback'}
         self.assertEqual(heroes, actual)
 
     def test_get_alt_radiant_heroes(self):
         game = convert_data(get_game_data(known_radiant_win))
         heroes = get_radiant_heroes(game)
-        actual = set()
-        actual.add("Drow Ranger")
-        actual.add("Sven")
-        actual.add("Tidehunter")
-        actual.add("Dazzle")
-        actual.add("Windranger")
+        actual = {'Drow Ranger', 'Sven', 'Tidehunter', 'Dazzle', 'Windranger'}
         self.assertEqual(heroes, actual)
 
     def test_get_dire_heroes(self):
         game = convert_data(get_game_data(known_good_match_id))
         heroes = get_dire_heroes(game)
-        actual = set()
-        actual.add("Jakiro")
-        actual.add("Necrophos")
-        actual.add("Lion")
-        actual.add("Viper")
-        actual.add("Dragon Knight")
+        actual = {'Jakiro', 'Necrophos', 'Lion', 'Viper', 'Dragon Knight'}
         self.assertEqual(actual, heroes)
 
 
