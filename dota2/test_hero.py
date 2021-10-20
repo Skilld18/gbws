@@ -22,7 +22,6 @@ class TestHero(unittest.TestCase):
         actual.add("Bristleback")
         self.assertEqual(heroes, actual)
 
-
     def test_get_alt_radiant_heroes(self):
         game = convert_data(get_game_data(known_radiant_win))
         heroes = get_radiant_heroes(game)
@@ -35,7 +34,8 @@ class TestHero(unittest.TestCase):
         self.assertEqual(heroes, actual)
 
     def test_get_dire_heroes(self):
-        heroes = get_dire_heroes()
+        game = convert_data(get_game_data(known_good_match_id))
+        heroes = get_dire_heroes(game)
         actual = set()
         actual.add("Jakiro")
         actual.add("Necrophos")
@@ -43,7 +43,6 @@ class TestHero(unittest.TestCase):
         actual.add("Viper")
         actual.add("Dragon Knight")
         self.assertEqual(actual, heroes)
-
 
 
 if __name__ == '__main__':
