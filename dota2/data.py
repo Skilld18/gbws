@@ -23,3 +23,7 @@ def get_key():
 
 def convert_data(game):
     return json.loads(game, object_hook=custom_json_decoder)
+
+
+def get_winner():
+    pass
