@@ -29,6 +29,28 @@ class TestHero(unittest.TestCase):
         actual = {'Jakiro', 'Necrophos', 'Lion', 'Viper', 'Dragon Knight'}
         self.assertEqual(actual, heroes)
 
+    def test_get_hero_together(self):
+        game = convert_data(get_game_data(known_good_match_id))
+        together = get_hero_together("Lich", game)
+        expected_together = dict()
+        expected_together[frozenset({"Riki", "Lich"})] = 0
+        expected_together[frozenset({"Razor", "Lich"})] = 0
+        expected_together[frozenset({"Slark", "Lich"})] = 0
+        expected_together[frozenset({"Bristleback", "Lich"})] = 0
+        self.assertEqual(together, expected_together)
+
+    def test_get_alt_hero_together(self):
+        game = convert_data(get_game_data(known_good_match_id))
+        together = get_hero_together("Jakiro", game)
+        expected_together = dict()
+        expected_together[frozenset({"Jakiro", "Necrophos"})] = 1
+        expected_together[frozenset({"Jakiro", "Lion"})] = 1
+        expected_together[frozenset({"Jakiro", "Viper"})] = 1
+        expected_together[frozenset({"Jakiro", "Dragon Knight"})] = 1
+        self.assertEqual(together, expected_together)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
