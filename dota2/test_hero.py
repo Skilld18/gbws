@@ -30,43 +30,52 @@ class TestHero(unittest.TestCase):
 
     def test_get_hero_together(self):
         game = convert_data(get_game_data(known_good_match_id))
-        together = dict()
+        together = {}
         together = get_hero_together("Lich", game, together)
-        expected_together = dict()
-        expected_together[frozenset({"Riki", "Lich"})] = 0
-        expected_together[frozenset({"Razor", "Lich"})] = 0
-        expected_together[frozenset({"Slark", "Lich"})] = 0
-        expected_together[frozenset({"Bristleback", "Lich"})] = 0
+        expected_together = {
+            "Lich": 1,
+            frozenset({"Riki", "Lich"}): 0,
+            frozenset({"Razor", "Lich"}): 0,
+            frozenset({"Slark", "Lich"}): 0,
+            frozenset({"Bristleback", "Lich"}): 0,
+        }
+
         self.assertEqual(together, expected_together)
 
     def test_get_alt_hero_together(self):
         game = convert_data(get_game_data(known_good_match_id))
-        together = dict()
+        together = {}
         together = get_hero_together("Jakiro", game, together)
-        expected_together = dict()
-        expected_together[frozenset({"Jakiro", "Necrophos"})] = 1
-        expected_together[frozenset({"Jakiro", "Lion"})] = 1
-        expected_together[frozenset({"Jakiro", "Viper"})] = 1
-        expected_together[frozenset({"Jakiro", "Dragon Knight"})] = 1
+        expected_together = {
+            "Jakiro": 1,
+            frozenset({"Jakiro", "Necrophos"}): 1,
+            frozenset({"Jakiro", "Lion"}): 1,
+            frozenset({"Jakiro", "Viper"}): 1,
+            frozenset({"Jakiro", "Dragon Knight"}): 1,
+        }
+
         self.assertEqual(together, expected_together)
 
     def test_existing_data(self):
         game = convert_data(get_game_data(known_good_match_id))
-        together = dict()
-        together[frozenset({"Jakiro", "Lion"})] = 3
+        together = {frozenset({"Jakiro", "Lion"}): 3}
         together = get_hero_together("Jakiro", game, together)
         actual = together[frozenset({"Jakiro", "Lion"})]
         self.assertEqual(actual, 4)
 
     def test_game_count(self):
         game = convert_data(get_game_data(known_good_match_id))
-        together = dict()
+        together = {}
         together = get_hero_together("Razor", game, together)
+        together = get_hero_together("Lich", game, together)
         game = convert_data(get_game_data(known_razor_game))
         together = get_hero_together("Razor", game, together)
+        together = get_hero_together("Lich", game, together)
 
-        num_games = get_game_count("Razor", together)
-        self.assertEqual(num_games, 2)
+        razor_games = get_game_count("Razor", together)
+        lich_games = get_game_count("Lich", together)
+        self.assertEqual(razor_games, 2)
+        self.assertEqual(lich_games, 1)
 
 
 if __name__ == '__main__':

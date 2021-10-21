@@ -34,6 +34,10 @@ def get_hero_together(hero, game, together):
         dire_win = 1
     else:
         print("The goblins won")
+    if hero not in together:
+        together[hero] = 0
+    if hero in get_dire_heroes(game) or hero in get_radiant_heroes(game):
+        together[hero] += 1
 
     if hero in get_radiant_heroes(game):
         compatriots = get_radiant_heroes(game)
@@ -55,4 +59,4 @@ def get_hero_together(hero, game, together):
 
 
 def get_game_count(hero, together):
-    return 2
+    return together[hero]
