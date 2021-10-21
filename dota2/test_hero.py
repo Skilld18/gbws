@@ -77,6 +77,11 @@ class TestHero(unittest.TestCase):
         self.assertEqual(razor_games, 2)
         self.assertEqual(lich_games, 1)
 
+    def test_get_hero_list(self):
+        self.assertTrue(len(get_hero_list()) > 108)
+        self.assertTrue("Dazzle" in get_hero_list())
+        self.assertTrue("Lion" in get_hero_list())
+
 
 if __name__ == '__main__':
     unittest.main()

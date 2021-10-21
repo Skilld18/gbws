@@ -1,3 +1,4 @@
+import data
 from data import *
 
 
@@ -60,3 +61,11 @@ def get_hero_together(hero, game, together):
 
 def get_game_count(hero, together):
     return together[hero]
+
+
+def get_hero_list():
+    hero_obj = convert_data(get_hero_data())
+    heroes = []
+    for hero in hero_obj:
+        heroes.append(hero.localized_name)
+    return heroes
