@@ -25,7 +25,7 @@ def get_dire_heroes(game):
     return get_heroes(game, False)
 
 
-def get_hero_together(hero, game):
+def get_hero_together(hero, game, together):
     radiant_win = 0
     dire_win = 0
     if get_winner(game) == Side.RADIANT:
@@ -35,18 +35,20 @@ def get_hero_together(hero, game):
     else:
         print("The goblins won")
 
-    expected_together = dict()
     if hero in get_radiant_heroes(game):
         compatriots = get_radiant_heroes(game)
         compatriots.remove(hero)
         for c in compatriots:
-            expected_together[frozenset({hero, c})] = radiant_win
+            if frozenset({hero, c}) not in together:
+                together[frozenset({hero, c})] = 0
+            together[frozenset({hero, c})] += radiant_win
 
     if hero in get_dire_heroes(game):
         compatriots = get_dire_heroes(game)
         compatriots.remove(hero)
         for c in compatriots:
-            expected_together[frozenset({hero, c})] = dire_win
+            if frozenset({hero, c}) not in together:
+                together[frozenset({hero, c})] = 0
+            together[frozenset({hero, c})] += dire_win
 
-
-    return expected_together
+    return together
