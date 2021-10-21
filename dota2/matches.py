@@ -1,4 +1,5 @@
 import data
+import hero
 
 
 def get_public_matches():
@@ -7,3 +8,15 @@ def get_public_matches():
 
 def radiant_win(game):
     return game.radiant_win
+
+
+def get_heroes(team):
+    return set(map(lambda x: hero.get_hero_name(int(x)), team.split(',')))
+
+
+def get_radiant_heroes(game):
+    return get_heroes(game.radiant_team)
+
+
+def get_dire_heroes(game):
+    return get_heroes(game.dire_team)
