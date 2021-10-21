@@ -32,7 +32,7 @@ class MatchTestCase(unittest.TestCase):
     def test_get_heroes_together(self):
         matches = get_static_public_matches()
         matches = data.convert_data(matches)
-        together = dict()
+        together = {}
         testing_hero = "Pudge"
         for m in matches:
             together = hero.get_public_hero_together(testing_hero, m, together)
@@ -49,6 +49,7 @@ class MatchTestCase(unittest.TestCase):
         total_out = sorted(total_out, key=lambda rec: float(rec[4]))
         for o in total_out:
             print(",".join(o))
+        self.assertEqual(total_out[-1], ["Pudge", "Snapfire", "1", "1", "100.0"])
 
 
 if __name__ == '__main__':

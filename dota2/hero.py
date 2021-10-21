@@ -1,13 +1,12 @@
-import data
 from data import *
 import matches
 from matches import radiant_win
 
 
 def get_hero_name(hero_id):
-    data = get_hero_data()
-    data = convert_data(data)
-    for hero in data:
+    dat = get_hero_data()
+    dat = convert_data(dat)
+    for hero in dat:
         if hero.id == hero_id:
             return hero.localized_name
 
@@ -29,12 +28,12 @@ def get_dire_heroes(game):
 
 
 def get_hero_together(hero, game, together):
-    radiant_win = 0
-    dire_win = 0
+    rad_win = 0
+    dir_win = 0
     if get_winner(game) == Side.RADIANT:
-        radiant_win = 1
+        rad_win = 1
     elif get_winner(game) == Side.DIRE:
-        dire_win = 1
+        dir_win = 1
     else:
         print("The goblins won")
     if hero not in together:
@@ -48,7 +47,7 @@ def get_hero_together(hero, game, together):
         for c in compatriots:
             if frozenset({hero, c}) not in together:
                 together[frozenset({hero, c})] = 0
-            together[frozenset({hero, c})] += radiant_win
+            together[frozenset({hero, c})] += rad_win
             if frozenset({hero, c, True}) not in together:
                 together[frozenset({hero, c, True})] = 0
             together[frozenset({hero, c, True})] += 1
@@ -59,7 +58,7 @@ def get_hero_together(hero, game, together):
         for c in compatriots:
             if frozenset({hero, c}) not in together:
                 together[frozenset({hero, c})] = 0
-            together[frozenset({hero, c})] += dire_win
+            together[frozenset({hero, c})] += dir_win
             if frozenset({hero, c, True}) not in together:
                 together[frozenset({hero, c, True})] = 0
             together[frozenset({hero, c, True})] += 1
@@ -100,7 +99,4 @@ def get_game_count(hero, together):
 
 def get_hero_list():
     hero_obj = convert_data(get_hero_data())
-    heroes = []
-    for hero in hero_obj:
-        heroes.append(hero.localized_name)
-    return heroes
+    return [hero.localized_name for hero in hero_obj]
