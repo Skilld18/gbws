@@ -2,7 +2,7 @@ from data import *
 
 
 def get_hero_name(hero_id):
-    data = get_hero_data(hero_id)
+    data = get_hero_data()
     data = convert_data(data)
     for hero in data:
         if hero.id == hero_id:
@@ -10,11 +10,11 @@ def get_hero_name(hero_id):
 
 
 def get_heroes(game, is_radiant):
-    heroes = set()
-    for player in game.players:
-        if player.isRadiant == is_radiant:
-            heroes.add(get_hero_name(player.hero_id))
-    return heroes
+    return {
+        get_hero_name(player.hero_id)
+        for player in game.players
+        if player.isRadiant == is_radiant
+    }
 
 
 def get_radiant_heroes(game):
@@ -52,6 +52,7 @@ def get_hero_together(hero, game, together):
             together[frozenset({hero, c})] += dire_win
 
     return together
+
 
 def get_game_count(hero, together):
     return 2

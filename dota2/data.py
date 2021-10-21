@@ -13,7 +13,7 @@ def get_game_data(game_id):
     return get_data("matches", game_id)
 
 
-def get_hero_data(hero_id):
+def get_hero_data():
     return get_data("heroes", "")
 
 

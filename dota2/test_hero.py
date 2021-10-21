@@ -1,6 +1,5 @@
 import unittest
 from test_const import *
-from data import *
 from hero import *
 
 
@@ -68,8 +67,6 @@ class TestHero(unittest.TestCase):
 
         num_games = get_game_count("Razor", together)
         self.assertEqual(num_games, 2)
-
-
 
 
 if __name__ == '__main__':
