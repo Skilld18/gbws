@@ -1,5 +1,6 @@
 import unittest
 from matches import *
+from test_const import *
 
 
 class MatchTestCase(unittest.TestCase):
@@ -7,13 +8,11 @@ class MatchTestCase(unittest.TestCase):
     def test_get_public_matches(self):
         self.assertEqual(len(get_public_matches()), 100)
 
-    def test_get_public_ids(self):
-        ids = get_public_ids()
-        self.assertEqual(type(get_public_ids()), type([]))
-
-    def test_get_games(self):
-        # some stuff throws??
-        self.assertTrue(len(get_games()) > 90)
+    def test_get_winner(self):
+        matches = get_static_public_matches()
+        matches = data.convert_data(matches)
+        self.assertTrue(radiant_win(matches[0]))
+        self.assertFalse(radiant_win(matches[1]))
 
 
 if __name__ == '__main__':

@@ -7,3 +7,10 @@ def get_static_game():
     with open("matches/1", "r") as match:
         match_str = match.read()
     return match_str
+
+
+def get_static_public_matches():
+    with open("matches/publicMatches", "r") as match:
+        match_str = match.read()
+    return match_str
+
