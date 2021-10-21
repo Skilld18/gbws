@@ -16,11 +16,15 @@ def get_game_data(game_id):
 def get_hero_data():
     return get_data("heroes", "")
 
-
+cache = dict()
 def get_data(rest_api, key):
     api_url = "https://api.opendota.com/api/"
-    return str(requests.get(api_url + rest_api + "/" +
-                            str(key) + "?api_key=" + get_key()).content.decode("utf-8"))
+    url = api_url + rest_api + "/" + str(key) + "?api_key=" + get_key()
+    global cache
+    if url in cache:
+        return cache[url]
+    cache[url] = str(requests.get(url).content.decode("utf-8"))
+    return cache[url]
 
 
 def get_key():
