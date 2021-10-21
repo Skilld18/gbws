@@ -59,7 +59,15 @@ class TestHero(unittest.TestCase):
         actual = together[frozenset({"Jakiro", "Lion"})]
         self.assertEqual(actual, 4)
 
+    def test_game_count(self):
+        game = convert_data(get_game_data(known_good_match_id))
+        together = dict()
+        together = get_hero_together("Razor", game, together)
+        game = convert_data(get_game_data(known_razor_game))
+        together = get_hero_together("Razor", game, together)
 
+        num_games = get_game_count("Razor", together)
+        self.assertEqual(num_games, 2)
 
 
 

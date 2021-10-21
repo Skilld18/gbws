@@ -52,3 +52,6 @@ def get_hero_together(hero, game, together):
             together[frozenset({hero, c})] += dire_win
 
     return together
+
+def get_game_count(hero, together):
+    return 2
