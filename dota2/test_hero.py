@@ -42,7 +42,6 @@ class TestHero(unittest.TestCase):
             frozenset({"Razor", "Lich", True}): 1,
             frozenset({"Slark", "Lich", True}): 1,
             frozenset({"Bristleback", "Lich", True}): 1,
-
         }
 
         self.assertEqual(together, expected_together)

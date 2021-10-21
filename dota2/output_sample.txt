@@ -1,0 +1,75 @@
+Hero, Other Hero, Wins, Matches, Percent
+Pudge,Axe,0,2,0.0
+Pudge,Bloodseeker,0,1,0.0
+Pudge,Drow Ranger,0,1,0.0
+Pudge,Juggernaut,0,1,0.0
+Pudge,Vengeful Spirit,0,1,0.0
+Pudge,Lion,0,2,0.0
+Pudge,Witch Doctor,0,1,0.0
+Pudge,Warlock,0,1,0.0
+Pudge,Faceless Void,0,1,0.0
+Pudge,Viper,0,2,0.0
+Pudge,Dragon Knight,0,1,0.0
+Pudge,Clockwork,0,1,0.0
+Pudge,Nature's Prophet,0,1,0.0
+Pudge,Clinkz,0,1,0.0
+Pudge,Weaver,0,1,0.0
+Pudge,Jakiro,0,2,0.0
+Pudge,Doom,0,1,0.0
+Pudge,Spirit Breaker,0,1,0.0
+Pudge,Treant Protector,0,1,0.0
+Pudge,Ogre Magi,0,2,0.0
+Pudge,Disruptor,0,1,0.0
+Pudge,Medusa,0,1,0.0
+Pudge,Magnus,0,1,0.0
+Pudge,Phoenix,0,1,0.0
+Pudge,Oracle,0,1,0.0
+Pudge,Arc Warden,0,1,0.0
+Pudge,Dark Willow,0,1,0.0
+Pudge,Pangolier,0,1,0.0
+Pudge,Grimstroke,0,1,0.0
+Pudge,Void Spirit,0,2,0.0
+Pudge,Windranger,1,4,25.0
+Pudge,Ember Spirit,1,4,25.0
+Pudge,Anti-Mage,1,3,33.333
+Pudge,Earthshaker,1,3,33.333
+Pudge,Morphling,1,3,33.333
+Pudge,Shadow Fiend,1,3,33.333
+Pudge,Lina,1,3,33.333
+Pudge,Phantom Assassin,1,3,33.333
+Pudge,Lifestealer,1,3,33.333
+Pudge,Monkey King,1,3,33.333
+Pudge,Phantom Lancer,1,2,50.0
+Pudge,Sand King,1,2,50.0
+Pudge,Storm Spirit,1,2,50.0
+Pudge,Lich,2,4,50.0
+Pudge,Luna,1,2,50.0
+Pudge,Bounty Hunter,1,2,50.0
+Pudge,Spectre,2,4,50.0
+Pudge,Invoker,1,2,50.0
+Pudge,Rubick,1,2,50.0
+Pudge,Techies,1,2,50.0
+Pudge,Mars,1,2,50.0
+Pudge,Crystal Maiden,2,3,66.667
+Pudge,Zeus,2,3,66.667
+Pudge,Tinker,2,3,66.667
+Pudge,Pugna,2,3,66.667
+Pudge,Skywrath Mage,4,6,66.667
+Pudge,Legion Commander,2,3,66.667
+Pudge,Terrorblade,2,3,66.667
+Pudge,Tiny,4,5,80.0
+Pudge,Shadow Shaman,1,1,100.0
+Pudge,Slardar,1,1,100.0
+Pudge,Venomancer,1,1,100.0
+Pudge,Wraith King,1,1,100.0
+Pudge,Dazzle,1,1,100.0
+Pudge,Huskar,1,1,100.0
+Pudge,Batrider,1,1,100.0
+Pudge,Ursa,1,1,100.0
+Pudge,Silencer,3,3,100.0
+Pudge,Chaos Knight,1,1,100.0
+Pudge,Nyx Assassin,1,1,100.0
+Pudge,Naga Siren,1,1,100.0
+Pudge,Slark,1,1,100.0
+Pudge,Underlord,1,1,100.0
+Pudge,Snapfire,1,1,100.0

@@ -1,5 +1,7 @@
 import data
 from data import *
+import matches
+from matches import radiant_win
 
 
 def get_hero_name(hero_id):
@@ -51,7 +53,6 @@ def get_hero_together(hero, game, together):
                 together[frozenset({hero, c, True})] = 0
             together[frozenset({hero, c, True})] += 1
 
-
     if hero in get_dire_heroes(game):
         compatriots = get_dire_heroes(game)
         compatriots.remove(hero)
@@ -63,7 +64,33 @@ def get_hero_together(hero, game, together):
                 together[frozenset({hero, c, True})] = 0
             together[frozenset({hero, c, True})] += 1
 
+    return together
 
+
+def get_public_hero_together(hero, game, together):
+    add = 0
+    compatriots = set()
+    if hero not in together:
+        together[hero] = 0
+    if hero in matches.get_radiant_heroes_public(game) or hero in matches.get_dire_heroes_public(game):
+        together[hero] += 1
+        if hero in matches.get_radiant_heroes_public(game):
+            compatriots = matches.get_radiant_heroes_public(game)
+            if radiant_win(game):
+                add = 1
+        else:
+            compatriots = matches.get_dire_heroes_public(game)
+            if not radiant_win(game):
+                add = 1
+        compatriots.remove(hero)
+
+    for c in compatriots:
+        if frozenset({hero, c}) not in together:
+            together[frozenset({hero, c})] = 0
+        together[frozenset({hero, c})] += add
+        if frozenset({hero, c, True}) not in together:
+            together[frozenset({hero, c, True})] = 0
+        together[frozenset({hero, c, True})] += 1
     return together
 
 
