@@ -38,6 +38,11 @@ class TestHero(unittest.TestCase):
             frozenset({"Razor", "Lich"}): 0,
             frozenset({"Slark", "Lich"}): 0,
             frozenset({"Bristleback", "Lich"}): 0,
+            frozenset({"Riki", "Lich", True}): 1,
+            frozenset({"Razor", "Lich", True}): 1,
+            frozenset({"Slark", "Lich", True}): 1,
+            frozenset({"Bristleback", "Lich", True}): 1,
+
         }
 
         self.assertEqual(together, expected_together)
@@ -52,6 +57,11 @@ class TestHero(unittest.TestCase):
             frozenset({"Jakiro", "Lion"}): 1,
             frozenset({"Jakiro", "Viper"}): 1,
             frozenset({"Jakiro", "Dragon Knight"}): 1,
+            frozenset({"Jakiro", "Necrophos", True}): 1,
+            frozenset({"Jakiro", "Lion", True}): 1,
+            frozenset({"Jakiro", "Viper", True}): 1,
+            frozenset({"Jakiro", "Dragon Knight", True}): 1,
+
         }
 
         self.assertEqual(together, expected_together)

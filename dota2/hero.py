@@ -47,6 +47,10 @@ def get_hero_together(hero, game, together):
             if frozenset({hero, c}) not in together:
                 together[frozenset({hero, c})] = 0
             together[frozenset({hero, c})] += radiant_win
+            if frozenset({hero, c, True}) not in together:
+                together[frozenset({hero, c, True})] = 0
+            together[frozenset({hero, c, True})] += 1
+
 
     if hero in get_dire_heroes(game):
         compatriots = get_dire_heroes(game)
@@ -55,6 +59,10 @@ def get_hero_together(hero, game, together):
             if frozenset({hero, c}) not in together:
                 together[frozenset({hero, c})] = 0
             together[frozenset({hero, c})] += dire_win
+            if frozenset({hero, c, True}) not in together:
+                together[frozenset({hero, c, True})] = 0
+            together[frozenset({hero, c, True})] += 1
+
 
     return together
 
