@@ -29,6 +29,15 @@ class Rockshoks(Enum):
 class Wheel(Enum):
     w29 = auto()
 
+class Price():
+    def __init__(self, value):
+        self.value = value / 2000
+    
+    def value():
+        return self.value / 2000
+
+
+
 @dataclass
 class Bike:
     model: str
@@ -36,11 +45,14 @@ class Bike:
     shimano: Shimano
     wheels: int
     manufactuer: Manufactuer
+    price: Price
 
     def groupset(self):
         if self.shimano != Shimano.none:
             return self.shimano
         return self.sram
+    def model_name(self):
+        return self.model
 
     def __sub__(self, other):
         if self.shimano == other.shimano and self.sram == other.sram:
