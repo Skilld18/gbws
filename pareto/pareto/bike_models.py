@@ -43,8 +43,9 @@ def datasets(data, catagories):
 
 def removed_labels(data):
     categories = list(vars(data[0]).keys())
-    categories.remove("model")
-    categories.remove("manufactuer")
+    for c in categories:
+        if type(c) == str:
+            categories.remove(c)
     return categories
 
 def vector_mod_catagories(categories):
