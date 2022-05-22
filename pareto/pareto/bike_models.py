@@ -3,10 +3,10 @@ import copy
 
 
 bikes = [
-	Bike("141 GX", Sram.gx, Shimano.none, Wheel.w29, Manufactuer.privateer, Price(4760)),
-	Bike("Proccess 134", Sram.nx, Shimano.none, Wheel.w29, Manufactuer.kona, Price(3699)),
-	Bike("Stumpjumper", Sram.none, Shimano.slx, Wheel.w29, Manufactuer.specialized, Price(3599)),
-    Bike("141 ohlines", Sram.none, Shimano.slx, Wheel.w29, Manufactuer.privateer, Price(5806)),
+	Bike("141 GX", Sram.gx, Shimano.none, Wheel.w29, Manufactuer.privateer, 4760.0),
+	Bike("Proccess 134", Sram.nx, Shimano.none, Wheel.w29, Manufactuer.kona, 3699.0),
+	Bike("Stumpjumper", Sram.none, Shimano.slx, Wheel.w29, Manufactuer.specialized, 3599.0),
+    Bike("141 ohlines", Sram.none, Shimano.slx, Wheel.w29, Manufactuer.privateer, 5806.0),
 ]
 
 
@@ -38,8 +38,13 @@ bikes = [
 def model_names(data):
     return list(map(lambda x: x.model, data))
 
+def get_value(x):
+    if hasattr(x, "value"):
+        return x.value
+    return x
+
 def datasets(data, catagories):
-    return list(map(lambda x: [vars(x).get(key).value for key in catagories], data))
+    return list(map(lambda x: [get_value(vars(x).get(key)) for key in catagories], data))
 
 def removed_labels(data):
     categories = list(vars(data[0]).keys())
@@ -65,6 +70,4 @@ def dataset_with_names(data, names):
     for i, e in enumerate(dataset):
         dataset[i].insert(0, names[i])
     return dataset
-
-
 
