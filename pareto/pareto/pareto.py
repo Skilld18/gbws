@@ -1,12 +1,14 @@
 import plotly.graph_objects as go
 import itertools
+from pareto_utils import *
 from bike_models import * 
 from bike import *
 
 
+
 categories = removed_labels(bikes)
 vmc = vector_mod_catagories(categories)
-names = model_names(bikes)
+names = names(bikes)
 dataset = datasets(bikes, categories)
 dwn = dataset_with_names(dataset, names)
 ad = all_data(bikes)

@@ -44,7 +44,7 @@ class Bike:
         if self.shimano != Shimano.none:
             return self.shimano
         return self.sram
-    def model_name(self):
+    def __str__(self):
         return self.model
 
     def __post_init__(self):
