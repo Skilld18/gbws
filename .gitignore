@@ -93,3 +93,5 @@ ENV/
 dota2/.idea
 .idea
 .fleet
+/demo_cache.sqlite
+/GBWS.iml
